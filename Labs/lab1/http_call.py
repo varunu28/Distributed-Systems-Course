@@ -1,7 +1,7 @@
 import requests
 
 def main():
-    url = "https://webhook.site/817fd522-e7fb-4916-a41f-acbc0db04371"
+    url = "https://webhook.site/aea677c7-e4e0-4f7b-a813-02ebafe3f62d"
     
     response1 = requests.get(url)
     response2 = requests.get(url)

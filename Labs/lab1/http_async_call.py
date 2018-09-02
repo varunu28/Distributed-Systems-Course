@@ -1,18 +1,17 @@
-import asyncio
-import requests
+import grequests
 
-async def make_request():
-    url = "https://webhook.site/817fd522-e7fb-4916-a41f-acbc0db04371"
-    
-    loop = asyncio.get_event_loop()
-
-    responses = [
-        loop.run_in_executor(None, requests.get, url)
-        for i in range(3)
+def make_request():
+    urls = [
+        "https://webhook.site/aea677c7-e4e0-4f7b-a813-02ebafe3f62d",
+        "https://webhook.site/aea677c7-e4e0-4f7b-a813-02ebafe3f62d",
+        "https://webhook.site/aea677c7-e4e0-4f7b-a813-02ebafe3f62d"
     ]
 
-    for response in await asyncio.gather(*responses):
+    rs = (grequests.get(u) for u in urls)
+    responses = grequests.map(rs)
+
+    for response in responses:
         print(response.headers['Date'])
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(make_request())
+if __name__ == "__main__":
+    make_request()
