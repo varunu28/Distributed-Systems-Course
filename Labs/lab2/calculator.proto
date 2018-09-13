@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calculator;
+
+// Service definition
+service calculator {
+    rpc sum (SumRequest) returns (SumResponse);
+}
+
+// First and second value for request
+message SumRequest {
+    int32 num1 = 1;
+    int32 num2 = 2;
+}
+
+// Value for response
+message SumResponse {
+    int32 res = 1;
+}
